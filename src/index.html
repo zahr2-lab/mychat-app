@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <input name="name" placeholder="name" />
+    <input name="phonenumber" placeholder="phonenumber" />
+    <button onclick="omit()">submit</button>
+
+    <script>
+      function omit() {
+        console.log("yes");
+        var name = document.getElementByName("name").value;
+        var phone = document.getElementByName("phonenumber").value;
+        postData("http://localhost:8080/add/user", {
+          name: name,
+          phone: phone
+        }).then((res) => console.log(res));
+      }
+
+      async function postData(url = "", data = {}) {
+        const response = await fetch(url, {
+          method: "POST",
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+          body: JSON.stringify(data)
+        });
+        return response.json();
+      }
+    </script>
+  </body>
+</html>

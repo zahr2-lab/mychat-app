@@ -1,0 +1,86 @@
+
+<style>
+  *{
+    margin: 0;
+    padding:0;
+    outline: none;
+    box-sizing: border-box;
+  }
+ 
+
+  #topbar{
+    width: 100%;
+    background: tomato;
+    color: white;
+    padding: 0.4rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+
+
+  }
+
+  form{
+    max-width: 25rem;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+    input{
+      flex: 1 1 100%;
+      font-size: 1.3rem;
+      margin: .3rem;
+      padding: .5rem;
+      border: 1px solid tomato;
+      border-radius: .3rem;
+    }
+    input:focus{
+      border: 2px solid tomato;
+      
+    }
+
+    #btnContainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    button{
+      font-size: 1.2rem;
+      margin: .3rem;
+      padding: .5rem;
+      border: 1px solid;      
+      border-radius: .3rem;
+      cursor: pointer;
+      flex: 1 1 30%;
+      background-color:white; 
+      color:tomato;
+    }
+    button:hover{
+      background-color:tomato ; 
+      color:white;
+    }
+
+    #homebtn{
+      flex:0 0 auto;
+      margin: 0;
+    }
+
+    
+
+
+    </style>
+    
+<div id="topbar"><h1>Login</h1>
+  <a href="/"><button id="homebtn">Home</button></a>
+</div>
+   
+    <form action='/user/login' method="POST">
+      <input placeholder="Phone Number" name="phone"/>
+      <input type="password" placeholder="Password" name="password"/>
+      <div id='btnContainer'>
+        <button >Login</button>
+        <a href="/user/signup"> Sign Up</a>
+      </div>
+    </form>
